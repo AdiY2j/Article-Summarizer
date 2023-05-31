@@ -43,7 +43,7 @@ jobs:
       - name: Build and deploy React app
         run: |
           npm ci
-          npm run-scripts build
+          npm run-script build
 
 
   # Deployment job
