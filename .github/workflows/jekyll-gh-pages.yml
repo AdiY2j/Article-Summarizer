@@ -32,8 +32,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.16.0
-          cache: 'npm'
-          cache-dependency-path: './package-lock.json'
       - name: Build
         run: |
           npm install
