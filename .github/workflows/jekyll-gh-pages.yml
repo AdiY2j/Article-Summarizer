@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
       - name: Set up environment
         run: |
-          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
+          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" > .env
       - name: Check if secret exists
         run: |
           if [[ -z "${{ secrets.REACT_APP_OPENAI_API_KEY }}" ]]; then
