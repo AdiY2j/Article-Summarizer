@@ -39,7 +39,11 @@ jobs:
         uses: actions/upload-pages-artifact@v1
       - name: Set up environment
         run: |
-          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
+      - name: Build and deploy React app
+        run: |
+          npm install
+          npm run build
 
 
   # Deployment job
@@ -55,4 +59,4 @@ jobs:
         uses: actions/deploy-pages@v2
       - name: Set up environment
         run: |
-          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
