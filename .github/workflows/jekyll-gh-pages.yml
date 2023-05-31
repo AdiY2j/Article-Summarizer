@@ -39,11 +39,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
       - name: Set up environment
         run: |
-          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
 
-      - name: Use OpenAI API key
-        run: |
-          echo $REACT_APP_OPENAI_API_KEY
 
   # Deployment job
   deploy:
@@ -58,4 +55,4 @@ jobs:
         uses: actions/deploy-pages@v2
       - name: Set up environment
         run: |
-          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
