@@ -38,9 +38,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
       - name: Build
-        run: |
-          npm install
-          npm run-script build
         env:
           REACT_APP_OPENAI_API_KEY: ${{ secrets.REACT_APP_OPENAI_API_KEY }}
 
