@@ -42,8 +42,8 @@ jobs:
           echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
       - name: Build and deploy React app
         run: |
-          npm install
-          npm run build
+          npm ci
+          npm run-scripts build
 
 
   # Deployment job
