@@ -37,9 +37,16 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
+      - name: Check if secret exists
+        run: |
+          if [[ -z "${{ secrets.REACT_APP_OPENAI_API_KEY }}" ]]; then
+            echo "Secret key REACT_APP_OPENAI_API_KEY is not set."
+          else
+            echo "Secret key REACT_APP_OPENAI_API_KEY exists."
+          fi
       - name: Set up environment
         run: |
-          echo "REACT_APP_OPENAI_API_KEY = ${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
+          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> .env
 
 
   # Deployment job
