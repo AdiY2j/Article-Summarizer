@@ -30,8 +30,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Build
         run: |
-          env:
-          REACT_APP_OPENAI_API_KEY: ${{ secrets.REACT_APP_OPENAI_API_KEY }}
+          touch .env
+          echo 'REACT_APP_OPENAI_API_KEY= ${{ secrets.REACT_APP_OPENAI_API_KEY }}' >> .env
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Build with Jekyll
